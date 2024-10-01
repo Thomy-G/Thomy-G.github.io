@@ -13,10 +13,13 @@ The Challenge includes source for website that has different movie titles and ra
 ![Pasted image 20240928111811](Pasted image 20240928111811.png)
 Checking the database we can see that the movie with id 30 has the flag as it's name, but it's banned so most functionality is disabled for it and only the admin can see it in it's watchlist
 ![Pasted image 20240928111941](Pasted image 20240928111941.png)
+but any user can add it to their watchlist just by sending a request with it's id to the add_movie endpoint 
 ![Pasted image 20240928113023](Pasted image 20240928113023.png)
 This doesn't help us yet because we can't look at it in any way from users with a "regular_freak" role.
 
+The report functionality is interesting because the app doesn't check if the host of the url is the one it's expecting:
 ![Pasted image 20240928113344](Pasted image 20240928113344.png)
+Therefore we can use something like an @ symbol and our on domain to redirect the request to an outside domain.
 
 Because of the lack of any XSS we could find we had to find some other way to extract the flag which is the name of our banned movie.
 
